@@ -1,6 +1,27 @@
+<!html DOCTYPE>
+<head>
+  <title>Battle!</title>
+  <style type="text/css">
+    body {
+      background-color: Black;
+      color: white;
+      padding: 20px;
+      font-family: Arial, Verdana, sans-serif;
+    }
+      .form {
+        background-color: blue;
+        color: white;
+        padding: inherit;
+      }
+      
+  </style>
+
+
+<body>
 
 <h1>Battle!</h1>
 <h2>Sign in to play</h2>
+<div class="form">
 <form action="/names" method="post">
   <label for="player_1_name">
     Player 1 name
@@ -11,4 +32,6 @@
     <input type="text" name="player_2_name">
   </label>
   <input type="submit" value="Submit">
+</div>
 </form>
+</body>
