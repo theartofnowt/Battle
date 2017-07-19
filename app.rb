@@ -17,13 +17,15 @@ class Battle < Sinatra::Base
   get '/play' do
     @player_1_name = $player_1.name
     @player_2_name = $player_2.name
-    @player_2_hp = 100
+    @player_2_hp = $player_2.hp
+    @latest_event = session[:latest_event]
     erb :play
   end
 
-  get '/confirmation' do
-    @confirmation = 'Player 1 attacked player 2!'
-    erb :confirmation
+  post '/confirmation' do
+    $player_1.attack($player_2)
+    session[:latest_event] = "Player 1 attacked player 2!"
+    redirect '/play'
   end
 
   run! if app_file == $0
