@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require File.join(File.dirname(__FILE__), 'lib/player.rb')
+require File.join(File.dirname(__FILE__), 'lib/game.rb')
 
 class Battle < Sinatra::Base
   enable :sessions
