@@ -1,5 +1,6 @@
 class Game
   DEFAULT_ATTACK = 10
+  DEFAULT_LOOSE = 0
 
   attr_reader :player_1, :player_2, :current_victim, :current_player
 
@@ -13,11 +14,15 @@ class Game
   def attack(player)
    player.reduce_hp(DEFAULT_ATTACK)
    switch_players
+
   end
 
   def switch_players
     @current_victim == player_1 ? @current_victim = player_2 : @current_victim = player_1
     @current_player == player_1 ? @current_player = player_2 : @current_player = player_1
   end
+
+  def loose
+    @current_player.hp == DEFAULT_LOOSE
 
 end
