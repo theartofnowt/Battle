@@ -20,13 +20,14 @@ class Battle < Sinatra::Base
     @player_1_name = $game.player_1.name
     @player_2_name = $game.player_2.name
     @player_2_hp = $game.player_2.hp
+    @player_1_hp = $game.player_1.hp
     @latest_event = session[:latest_event]
     erb :play
   end
 
   post '/confirmation' do
-    $game.attack($game.player_2)
-    session[:latest_event] = "Player 1 attacked player 2!"
+    $game.attack($game.current_victim)
+    session[:latest_event] = "#{$game.current_player.name} attacked #{$game.current_victim.name}!"
     redirect '/play'
   end
 
